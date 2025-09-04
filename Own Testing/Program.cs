@@ -15,7 +15,6 @@ static void Intro()
 }
 static void Kitchen()
 {
-    
     Print("You walk inside the shack and find yourself inside a kitchen. What do you do?", 1500);
     Print("1. Check the cabinets\n2. Investigate other rooms\n3. Go back", 1000);
     string key = Keytest();
@@ -41,14 +40,12 @@ static string Keytest()
     {
         if (Console.KeyAvailable)
         {
-            a = Console.ReadKey().KeyChar.ToString();
+            a = Console.ReadKey(true).KeyChar.ToString();
         }
     }
     return a;
 }
 static void Print(string a, int time)
-
-
 {
     for (int i = 0; i < a.Length; i++)
     {
@@ -56,12 +53,11 @@ static void Print(string a, int time)
         Thread.Sleep(time / a.Length);
         if (Console.KeyAvailable == true)
         {
-            if (Console.ReadKey().KeyChar == ' ')
+            if (Console.ReadKey(true).KeyChar == ' ')
             {
                 time = 0;
             }
         }
-
     }
     Console.Write("\n");
 }
